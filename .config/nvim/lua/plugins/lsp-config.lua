@@ -6,10 +6,16 @@ return {
         end
     },
     {
+        "folke/neodev.nvim",
+        config = function ()
+            require("neodev").setup({})
+        end
+    },
+    {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer" }
+                ensure_installed = { "lua_ls", "rust_analyzer", "tsserver" }
             })
         end
     },
@@ -18,9 +24,20 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
 
-            lspconfig.lua_ls.setup({})
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        },
+                        completions = {
+                            callSnippet = "Replace"
+                        }
+                    }
+                }
+            })
             lspconfig.rust_analyzer.setup({})
-
+            lspconfig.tsserver.setup({})
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})

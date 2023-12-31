@@ -12,6 +12,8 @@ return {
                 },
                 autochdir = true
             })
+            local opts = {buffer = 0}
+            vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
         end
     }
 }
