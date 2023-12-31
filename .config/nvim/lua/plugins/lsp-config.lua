@@ -2,13 +2,33 @@ return {
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
         end
     },
     {
         "folke/neodev.nvim",
         config = function ()
             require("neodev").setup({})
+        end
+    },
+    {
+        "rshkarin/mason-nvim-lint",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-lint",
+        },
+        config = function ()
+            require("mason-nvim-lint").setup({
+                ensure_installed = { "stylua" }
+            })
         end
     },
     {
