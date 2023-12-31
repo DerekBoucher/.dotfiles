@@ -1,67 +1,85 @@
 return {
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-        end
-    },
-    {
-        "folke/neodev.nvim",
-        config = function ()
-            require("neodev").setup({})
-        end
-    },
-    {
-        "rshkarin/mason-nvim-lint",
-        dependencies = {
-            "williamboman/mason.nvim",
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup({
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			})
+		end,
+	},
+	{
+		"folke/neodev.nvim",
+		config = function()
+			require("neodev").setup({})
+		end,
+	},
+	{
+		"rshkarin/mason-nvim-lint",
+		dependencies = {
+			"williamboman/mason.nvim",
             "mfussenegger/nvim-lint",
-        },
-        config = function ()
+		},
+		config = function()
             require("mason-nvim-lint").setup({
-                ensure_installed = { "stylua" }
-            })
-        end
-    },
+				ensure_installed = { "stylua", "prettier" },
+			})
+		end,
+	},
     {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer", "tsserver" }
-            })
-        end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            local lspconfig = require("lspconfig")
+        "nvimtools/none-ls.nvim",
+        config = function ()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    -- formatters
+                    null_ls.builtins.formatting.stylua,
+                    null_ls.builtins.formatting.prettier,
 
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { "vim" }
-                        },
-                        completions = {
-                            callSnippet = "Replace"
-                        }
-                    }
+                    -- linters
+                    null_ls.builtins.diagnostics.eslint_d,
                 }
             })
-            lspconfig.rust_analyzer.setup({})
-            lspconfig.tsserver.setup({})
 
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-            vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', "<leader>gf", vim.lsp.buf.format, {})
         end
-    }
+    },
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "eslint" },
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local lspconfig = require("lspconfig")
+
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						completions = {
+							callSnippet = "Replace",
+						},
+					},
+				},
+			})
+			lspconfig.rust_analyzer.setup({})
+			lspconfig.tsserver.setup({})
+
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
 }
