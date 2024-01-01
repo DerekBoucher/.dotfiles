@@ -27,7 +27,7 @@ return {
         },
         config = function()
             require("mason-nvim-lint").setup({
-                ensure_installed = { "stylua", "prettier" },
+                ensure_installed = { "stylua", "prettier", "codelldb" },
             })
         end,
     },
@@ -42,6 +42,7 @@ return {
                     javascript = formatters.lsp,
                     go = formatters.lsp,
                     rust = formatters.lsp,
+                    json = formatters.lsp,
                 },
             })
         end,

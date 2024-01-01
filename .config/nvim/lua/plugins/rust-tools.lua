@@ -5,9 +5,15 @@ return {
 			"neovim/nvim-lspconfig",
 			"nvim-lua/plenary.nvim",
 			"mfussenegger/nvim-dap",
+			"rcarriga/nvim-dap-ui",
 		},
 		config = function()
 			local rt = require("rust-tools")
+
+			local codelldb = require("mason-registry").get_package("codelldb")
+			local extension_path = codelldb:get_install_path() .. "/extension/"
+			local codelldb_path = extension_path .. "adapter/codelldb"
+			local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 			rt.setup({
 				server = {
@@ -22,11 +28,7 @@ return {
 					},
 				},
 				dap = {
-					adapter = {
-						type = "executable",
-						command = "lldb-vscode",
-						name = "rt_lldb",
-					},
+					adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
 				},
 			})
 		end,
