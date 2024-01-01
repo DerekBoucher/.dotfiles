@@ -32,3 +32,8 @@ vim.keymap.set("n", "<A-up>", ":m .-2<CR>")
 vim.keymap.set("v", "<A-down>", ":m '>+1<CR>`[V`]")
 vim.keymap.set("v", "<A-up>", ":m .-2<CR>`[V`]")
 vim.keymap.set("v", "<C-c>", '"+y')
+
+-- tab
+vim.keymap.set("n", "<leader>nt", ":tabnew<CR>")
+vim.keymap.set("n", "<leader><right>", ":tabnext<CR>")
+vim.keymap.set("n", "<leader><left>", ":tabprev<CR>")
