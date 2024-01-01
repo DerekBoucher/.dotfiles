@@ -23,32 +23,32 @@ return {
 		"rshkarin/mason-nvim-lint",
 		dependencies = {
 			"williamboman/mason.nvim",
-            "mfussenegger/nvim-lint",
+			"mfussenegger/nvim-lint",
 		},
 		config = function()
-            require("mason-nvim-lint").setup({
+			require("mason-nvim-lint").setup({
 				ensure_installed = { "stylua", "prettier" },
 			})
 		end,
 	},
-    {
-        "nvimtools/none-ls.nvim",
-        config = function ()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    -- formatters
-                    null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.formatting.prettier,
+	{
+		"nvimtools/none-ls.nvim",
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					-- formatters
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.prettier,
 
-                    -- linters
-                    null_ls.builtins.diagnostics.eslint_d,
-                }
-            })
+					-- linters
+					null_ls.builtins.diagnostics.eslint_d,
+				},
+			})
 
-            vim.keymap.set('n', "<leader>gf", vim.lsp.buf.format, {})
-        end
-    },
+			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+		end,
+	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -59,14 +59,17 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"folke/neodev.nvim",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 
-            -- Autocompletions
+			-- Autocompletions
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			lspconfig.lua_ls.setup({
-                capabilities = capabilities,
+				capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -80,12 +83,12 @@ return {
 			})
 
 			lspconfig.rust_analyzer.setup({
-                capabilities = capabilities,
-            })
+				capabilities = capabilities,
+			})
 
 			lspconfig.tsserver.setup({
-                capabilities = capabilities,
-            })
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

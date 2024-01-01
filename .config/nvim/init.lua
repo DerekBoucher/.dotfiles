@@ -7,8 +7,10 @@ vim.cmd("set number")
 
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<A-down>", ":m .+1<CR>==")
-vim.keymap.set("n", "<A-up>", ":m .-2<CR>==")
+vim.keymap.set("n", "<A-down>", ":m .+1<CR>")
+vim.keymap.set("n", "<A-up>", ":m .-2<CR>")
+vim.keymap.set("v", "<A-down>", ":m '>+1<CR>`[V`]")
+vim.keymap.set("v", "<A-up>", ":m .-2<CR>`[V`]")
 
 -- Initialize lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
