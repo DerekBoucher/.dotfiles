@@ -28,6 +28,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 
-if [ -d "$HOME/.zshrc.embroker" ]; then
+if [ -s "$HOME/.zshrc.embroker" ]; then
     source $HOME/.zshrc.embroker
 fi
+
+if [ -s "$HOME/.zshrc.secrets" ]; then
+    source $HOME/.zshrc.secrets
+fi
+
+alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'

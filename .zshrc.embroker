@@ -1,5 +1,3 @@
-export GIT_PACKAGES_TOKEN=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
-export GIT_AUTH_TOKEN=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
 export DATABASE_URL=postgres://embroker_role:pwd@localhost:5432/embroker
 
 # Aliases
