@@ -10,9 +10,15 @@ return {
 							--- opts
 						}),
 					},
+					["workspaces"] = {
+						-- opts
+					},
 				},
 			})
 			telescope.load_extension("ui-select")
+			telescope.load_extension("workspaces")
+
+			vim.keymap.set("n", "<C-r>", ":Telescope workspaces<CR>")
 		end,
 	},
 	{
@@ -26,22 +32,22 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 		end,
 	},
-	{
-		"willthbill/opener.nvim",
-		config = function()
-			local telescope = require("telescope")
-			telescope.setup({
-				extensions = {
-					opener = {
-						hidden = true,
-						respect_gitignore = true,
-					},
-				},
-			})
-			telescope.load_extension("opener")
+	--{
+	--	"willthbill/opener.nvim",
+	--	config = function()
+	--		local telescope = require("telescope")
+	--		telescope.setup({
+	--			extensions = {
+	--				opener = {
+	--					hidden = true,
+	--					respect_gitignore = true,
+	--				},
+	--			},
+	--		})
+	--		telescope.load_extension("opener")
 
-			local opener = telescope.extensions.opener
-			vim.keymap.set("n", "<C-r>", opener.opener, {})
-		end,
-	},
+	--		local opener = telescope.extensions.opener
+	--		vim.keymap.set("n", "<C-r>", opener.opener, {})
+	--	end,
+	--},
 }
