@@ -30,6 +30,19 @@ return {
 				dapui.close()
 			end
 
+			local codelldb = require("mason-registry").get_package("codelldb")
+			local extension_path = codelldb:get_install_path() .. "/extension/"
+			local codelldb_path = extension_path .. "adapter/codelldb"
+
+			dap.adapters.codelldb = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command = codelldb_path,
+					args = { "--port", "${port}" },
+				},
+			}
+
 			local js_based_languages = { "typescript", "javascript", "typescriptreact" }
 
 			for _, language in ipairs(js_based_languages) do
@@ -58,14 +71,48 @@ return {
 					},
 				}
 			end
-			vim.keymap.set("n", "<F5>", require("dap").continue)
-			vim.keymap.set("n", "<F10>", require("dap").step_over)
-			vim.keymap.set("n", "<F11>", require("dap").step_into)
-			vim.keymap.set("n", "<F12>", require("dap").step_out)
-			vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
-			vim.keymap.set("n", "<leader>B", function()
-				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-			end)
+
+			dap.configurations["rust"] = {
+				{
+					name = "rust-launch-debug",
+					request = "launch",
+					type = "codelldb",
+					cwd = "${workspaceFolder}",
+					cargo = {
+						args = { "build", "--all-features" },
+					},
+					program = function()
+						return vim.fn.input("Path to executable:", vim.fn.getcwd() .. "/", "file")
+					end,
+					sourceLanguages = { "rust" },
+					stopOnEntry = false,
+					environment = { "RUST_LOG=debug" },
+				},
+			}
+
+			dap.configurations["c"] = {
+				{
+					name = "rust-launch-debug",
+					request = "launch",
+					type = "codelldb",
+					cwd = "${workspaceFolder}",
+					program = "${workspaceFolder}/target/debug/rusty_fuugbemu",
+					stopOnEntry = false,
+					environment = { "RUST_LOG=debug" },
+				},
+			}
+
+			dap.configurations["cpp"] = {
+				{
+					name = "rust-launch-debug",
+					request = "launch",
+					type = "codelldb",
+					cwd = "${workspaceFolder}",
+					program = "${workspaceFolder}/target/debug/rusty_fuugbemu",
+					stopOnEntry = false,
+					environment = { "RUST_LOG=debug" },
+				},
+			}
 		end,
 	},
 }
