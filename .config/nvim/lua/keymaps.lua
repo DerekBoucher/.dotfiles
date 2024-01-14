@@ -26,8 +26,11 @@ function keymaps.setup()
 
     -- Windows / Tabs / Navigation
     vim.keymap.set("n", "<leader>nt", ":tabnew<CR>")
-    vim.keymap.set("n", "<leader><right>", ":tabnext<CR>")
-    vim.keymap.set("n", "<leader><left>", ":tabprev<CR>")
+    vim.keymap.set("n", "<leader><right>", "<Cmd>BufferNext<CR>")
+    vim.keymap.set("n", "<leader><left>", "<Cmd>BufferPrevious<CR>")
+    vim.keymap.set("n", "<A-left>", "<Cmd>BufferMovePrevious<CR>")
+    vim.keymap.set("n", "<A-right>", "<Cmd>BufferMoveNext<CR>")
+    vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
     vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>", {})
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
     vim.keymap.set("n", "<C-r>", ":Telescope workspaces<CR>")
@@ -44,6 +47,9 @@ function keymaps.setup()
     vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
     vim.keymap.set("n", "<leader>B", function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+    end)
+    vim.keymap.set("n", "<leader>cd", function()
+        require("dapui").toggle()
     end)
 
     -- Terminal

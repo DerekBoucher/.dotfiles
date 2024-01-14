@@ -184,7 +184,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/ds_wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/Ubuntu_warrior_by_jt05.png
 exec_always --no-startup-id picom &
 
 gaps inner 15px
