@@ -6,7 +6,7 @@ return {
 			require("toggleterm").setup({
 				open_mapping = [[<C-\>]],
 				hide_numbers = true,
-				direction = "float",
+				direction = "horizontal",
 				float_opts = {
 					border = "curved",
 				},

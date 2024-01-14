@@ -97,6 +97,10 @@ return {
 				},
 			})
 
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
+
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
