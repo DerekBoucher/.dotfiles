@@ -188,7 +188,6 @@ exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/Ubuntu_warrior_
 exec_always --no-startup-id picom &
 
 gaps inner 15px
-gaps top 15px
 
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
@@ -201,4 +200,5 @@ for_window [title ="Friends List"] floating enable
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
 }
