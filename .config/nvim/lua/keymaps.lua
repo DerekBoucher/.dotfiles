@@ -11,6 +11,7 @@ function keymaps.setup()
 	vim.keymap.set("v", "<A-up>", ":m .-2<CR>`[V`]")
 	vim.keymap.set("v", "<C-c>", '"+y')
 	vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>")
+	vim.keymap.set("i", "<C-s>", "<esc><Cmd>:w<CR>")
 	vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
@@ -25,6 +26,9 @@ function keymaps.setup()
 		trouble.toggle()
 	end)
 
+	-- Markdown Preview
+	vim.keymap.set("n", "<leader>mp", "<Cmd>MarkdownPreviewToggle<CR>")
+
 	-- Windows / Tabs / Navigation
 	vim.keymap.set("n", "<leader>nt", ":tabnew<CR>")
 	vim.keymap.set("n", "<leader><right>", "<Cmd>BufferNext<CR>")
@@ -32,8 +36,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<A-left>", "<Cmd>BufferMovePrevious<CR>")
 	vim.keymap.set("n", "<A-right>", "<Cmd>BufferMoveNext<CR>")
 	vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
-	vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>", {})
-	vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+	vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
 	vim.keymap.set("n", "<C-r>", ":Telescope workspaces<CR>")
 
 	local builtin = require("telescope.builtin")
@@ -52,6 +55,22 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>cd", function()
 		require("dapui").toggle()
 	end)
+
+	-- Git
+	vim.keymap.set("n", "<leader>o", "<cmd>OpenFileInRepo<cr>", { desc = "Open in web browser" })
+	vim.keymap.set(
+		"n",
+		"<leader>O",
+		"<cmd>OpenLineInRepo<cr>",
+		{ desc = "Open in web browser, including current line" }
+	)
+	vim.keymap.set("n", "<leader>y", "<cmd>YankFileUrl +<cr>", { desc = "Yank Url to system clipboard" })
+	vim.keymap.set(
+		"n",
+		"<leader>Y",
+		"<cmd>YankLineUrl +<cr>",
+		{ desc = "Yank Url to system clipboard, including current line" }
+	)
 
 	-- Terminal
 	local opts = { buffer = 0 }
