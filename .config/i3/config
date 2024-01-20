@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -198,7 +198,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/Ubuntu_warrior_by_jt05.png
+exec_always --no-startup-id $HOME/.config/i3/bg_set.sh &
 exec_always --no-startup-id picom &
 
 gaps inner 15px
