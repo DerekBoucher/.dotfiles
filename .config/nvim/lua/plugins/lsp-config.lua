@@ -28,6 +28,7 @@ return {
 		config = function()
 			require("mason-nvim-lint").setup({
 				ensure_installed = { "stylua", "prettier", "codelldb" },
+				automatic_installation = false,
 			})
 		end,
 	},
