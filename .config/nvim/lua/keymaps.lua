@@ -26,6 +26,11 @@ function keymaps.setup()
 		trouble.toggle()
 	end)
 
+	-- HTTP Requests
+	vim.keymap.set("n", "<leader>shr", "<Plug>RestNvim", {})
+	vim.keymap.set("n", "<leader>phr", "<Plug>RestNvimPreview", {})
+	vim.keymap.set("n", "<leader>rlr", "<Plug>RestNvimLast", {})
+
 	-- Markdown Preview
 	vim.keymap.set("n", "<leader>mp", "<Cmd>MarkdownPreviewToggle<CR>")
 
