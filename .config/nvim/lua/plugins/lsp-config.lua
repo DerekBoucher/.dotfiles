@@ -38,6 +38,7 @@ return {
 			local formatters = require("format-on-save.formatters")
 			require("format-on-save").setup({
 				formatter_by_ft = {
+					c = formatters.lsp,
 					lua = formatters.lsp,
 					typescript = formatters.prettier,
 					javascript = formatters.lsp,
@@ -68,7 +69,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "eslint", "gopls" },
+				ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "eslint", "gopls", "clangd" },
 			})
 		end,
 	},
@@ -96,6 +97,10 @@ return {
 						},
 					},
 				},
+			})
+
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
 			})
 
 			lspconfig.rust_analyzer.setup({
