@@ -44,6 +44,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 	vim.keymap.set("n", "<leader>st", builtin.colorscheme, {})
 	vim.keymap.set("n", "<leader>lk", builtin.keymaps, {})
+	vim.keymap.set("n", "<leader>lb", builtin.buffers, {})
 
 	-- Debugging
 	vim.keymap.set("n", "<F5>", require("dap").continue)
