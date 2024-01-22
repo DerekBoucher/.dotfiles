@@ -16,7 +16,7 @@ alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
 alias cdg="cd ~/src/github.com"
 
 prompt_context() {
-  prompt_segment black default ""
+  prompt_segment black default ""
 }
 
 prompt_dir() {
