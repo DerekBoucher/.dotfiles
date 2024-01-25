@@ -7,6 +7,8 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
+						file_ignore_patterns = { ".git/*", "node_modules/*" },
+						find_command = { "rg", "--ignore", "--hidden", "--files", "-u" },
 					},
 				},
 				extension = {
@@ -18,6 +20,7 @@ return {
 					["workspaces"] = {
 						-- opts
 					},
+					["dap-go"] = {},
 				},
 			})
 			telescope.load_extension("ui-select")
