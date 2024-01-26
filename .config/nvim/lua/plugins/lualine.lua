@@ -6,6 +6,9 @@ return {
 				theme = "nightfly",
 				icons_enabled = true,
 			},
+			sections = {
+				lualine_b = { { "filename", path = 1 } },
+			},
 		})
 	end,
 }

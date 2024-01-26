@@ -2,6 +2,7 @@ return {
 	{
 		"rest-nvim/rest.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
+		lazy = false,
 		config = function()
 			require("rest-nvim").setup({
 				result = {
@@ -15,7 +16,11 @@ return {
 						end,
 					},
 				},
+				env_file = os.getenv("HOME") .. "/src/github.com/embroker/http-stubs/.env.local",
+				result_split_horizontal = true,
 			})
+
+			vim.cmd(":RestSelectEnv " .. os.getenv("HOME") .. "/src/github.com/embroker/http-stubs/.env.local")
 		end,
 	},
 }
