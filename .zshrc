@@ -20,7 +20,7 @@ prompt_context() {
 }
 
 prompt_dir() {
-  prompt_segment blue white '%c'
+  prompt_segment blue black '%c'
 }
 
 export NVM_DIR="$HOME/.nvm"
