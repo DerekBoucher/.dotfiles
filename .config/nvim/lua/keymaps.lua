@@ -20,12 +20,6 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {})
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
-	local trouble = require("trouble")
-
-	vim.keymap.set("n", "<leader>xx", function()
-		trouble.toggle()
-	end)
-
 	-- HTTP Requests
 	vim.keymap.set("n", "<leader>shr", "<Plug>RestNvim", {})
 	vim.keymap.set("n", "<leader>phr", "<Plug>RestNvimPreview", {})
@@ -33,6 +27,21 @@ function keymaps.setup()
 
 	-- Markdown Preview
 	vim.keymap.set("n", "<leader>mp", "<Cmd>MarkdownPreviewToggle<CR>")
+
+	-- Testing
+	local neotest = require("neotest")
+	vim.keymap.set("n", "<leader>tr", neotest.run.run)
+	vim.keymap.set("n", "<leader>ts", neotest.run.stop)
+	vim.keymap.set("n", "<leader>to", function()
+		neotest.output.open({ enter = true })
+	end, {})
+	vim.keymap.set("n", "<leader>ti", neotest.summary.toggle, {})
+	vim.keymap.set("n", "<leader>td", function()
+		neotest.run.run({
+			strategy = "dap",
+			suite = false,
+		})
+	end)
 
 	-- Windows / Tabs / Navigation
 	vim.keymap.set("n", "<leader>nt", ":tabnew<CR>")
@@ -50,6 +59,9 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>st", builtin.colorscheme, {})
 	vim.keymap.set("n", "<leader>lk", builtin.keymaps, {})
 	vim.keymap.set("n", "<leader>lb", builtin.buffers, {})
+	vim.keymap.set("n", "<leader>lqf", builtin.quickfix, {})
+	vim.keymap.set("n", "<leader>lsd", builtin.lsp_definitions, {})
+	vim.keymap.set("n", "<leader>xx", builtin.diagnostics, {})
 
 	-- Debugging
 	vim.keymap.set("n", "<F5>", require("dap").continue)

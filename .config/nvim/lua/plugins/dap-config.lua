@@ -58,6 +58,15 @@ return {
 				})
 			end
 
+			dap.adapters.go_local = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command = "dlv",
+					args = { "dap", "-l", "127.0.0.1:${port}" },
+				},
+			}
+
 			local js_based_languages = { "typescript", "javascript", "typescriptreact" }
 
 			for _, language in ipairs(js_based_languages) do
