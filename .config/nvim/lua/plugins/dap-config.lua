@@ -182,6 +182,32 @@ return {
 						return vim.fn.input("Port: ")
 					end,
 				},
+				{
+					name = "Monolith Docker Debug",
+					request = "attach",
+					type = "go_remote",
+					mode = "remote",
+					substitutePath = {
+						{
+							from = "${workspaceFolder}",
+							to = "/go/src/server/server",
+						},
+					},
+					port = 4012,
+				},
+				{
+					name = "Rating Engine Docker Debug",
+					request = "attach",
+					type = "go_remote",
+					mode = "remote",
+					substitutePath = {
+						{
+							from = "${workspaceFolder}",
+							to = "/backend-src/rating_engine",
+						},
+					},
+					port = 4030,
+				},
 			}
 		end,
 	},

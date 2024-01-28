@@ -69,7 +69,16 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "eslint", "gopls", "clangd" },
+				ensure_installed = {
+					"lua_ls",
+					"rust_analyzer",
+					"tsserver",
+					"eslint",
+					"gopls",
+					"clangd",
+					"docker_compose_language_service",
+					"dockerls",
+				},
 			})
 		end,
 	},
@@ -97,6 +106,10 @@ return {
 						},
 					},
 				},
+			})
+
+			lspconfig.dockerls.setup({
+				capabilities = capabilities,
 			})
 
 			lspconfig.clangd.setup({
