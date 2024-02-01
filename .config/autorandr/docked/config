@@ -16,6 +16,10 @@ output DisplayPort-8
 off
 output DisplayPort-9
 off
+output DisplayPort-10
+off
+output DisplayPort-11
+off
 output eDP-1-0
 off
 output DisplayPort-1-0
