@@ -15,6 +15,9 @@ return {
 					hide_gitignored = false,
 					visible = true,
 				},
+				follow_current_file = {
+					enabled = true,
+				},
 			},
 		})
 	end,
