@@ -204,6 +204,19 @@ return {
                     },
                     port = 4030,
                 },
+                {
+                    name = "Notifications Docker Debug",
+                    request = "attach",
+                    type = "go_remote",
+                    mode = "remote",
+                    substitutePath = {
+                        {
+                            from = "${workspaceFolder}",
+                            to = "/backend-src/notifications",
+                        },
+                    },
+                    port = 45651,
+                },
             }
         end,
     },
