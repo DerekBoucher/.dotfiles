@@ -11,7 +11,7 @@ return {
 						find_command = { "rg", "--ignore", "--hidden", "--files", "-u" },
 					},
 				},
-				extension = {
+				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({
 							--- opts
@@ -20,17 +20,21 @@ return {
 					["workspaces"] = {
 						-- opts
 					},
-					["dap-go"] = {},
+					["emoji"] = {
+						action = function(emoji)
+							vim.api.nvim_put({ emoji.value }, "c", false, true)
+						end,
+					},
 				},
 			})
 			telescope.load_extension("ui-select")
 			telescope.load_extension("workspaces")
 			telescope.load_extension("dap")
+			telescope.load_extension("emoji")
 		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim", "xiyaowong/telescope-emoji.nvim" },
 	},
 }

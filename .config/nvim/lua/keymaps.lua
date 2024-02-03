@@ -63,6 +63,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>lqf", builtin.quickfix, {})
 	vim.keymap.set("n", "<leader>lsd", builtin.lsp_definitions, {})
 	vim.keymap.set("n", "<leader>xx", builtin.diagnostics, {})
+	vim.keymap.set("n", "<leader>em", ":Telescope emoji<CR>", { desc = "Pick an emoji to insert at cursor location" })
 
 	-- Debugging
 	vim.keymap.set("n", "<F5>", require("dap").continue)
