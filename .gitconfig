@@ -2,4 +2,4 @@
 	name = Derek Boucher
 	email = derek.boucher@me.com
 [core]
-	editor = vim
+	editor = nano
