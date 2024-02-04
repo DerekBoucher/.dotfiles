@@ -36,7 +36,6 @@ x-prop-underscan off
 x-prop-underscan_hborder 0
 x-prop-underscan_vborder 0
 output DisplayPort-1-11
-crtc 5
 mode 2560x1440
 pos 2560x0
 primary
@@ -49,7 +48,6 @@ x-prop-underscan off
 x-prop-underscan_hborder 0
 x-prop-underscan_vborder 0
 output DisplayPort-1-10
-crtc 6
 mode 1920x1080
 pos 5120x0
 rate 60.00
