@@ -61,7 +61,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>lk", builtin.keymaps, {})
 	vim.keymap.set("n", "<leader>lb", builtin.buffers, {})
 	vim.keymap.set("n", "<leader>lqf", builtin.quickfix, {})
-	vim.keymap.set("n", "<leader>lsd", builtin.lsp_definitions, {})
+	vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, {})
 	vim.keymap.set("n", "<leader>xx", builtin.diagnostics, {})
 	vim.keymap.set("n", "<leader>em", ":Telescope emoji<CR>", { desc = "Pick an emoji to insert at cursor location" })
 
@@ -93,6 +93,14 @@ function keymaps.setup()
 		"<cmd>YankLineUrl +<cr>",
 		{ desc = "Yank Url to system clipboard, including current line" }
 	)
+	vim.keymap.set(
+		"n",
+		"<leader>gp",
+		":Gitsigns preview_hunk<CR>",
+		{ desc = "view the git change delimited by the selected hunk" }
+	)
+	vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Opens a new window with git blame information" })
+	vim.keymap.set("n", "<leader>k", ":Git diff<CR>", { desc = "Opens the current git diffs" })
 
 	-- Terminal
 	local opts = { buffer = 0 }
