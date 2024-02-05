@@ -161,9 +161,7 @@ return {
                             to = "/tmp/gobuild",
                         },
                     },
-                    port = function()
-                        return vim.fn.input("Port: ")
-                    end,
+                    port = 4004,
                 },
                 {
                     name = "Cowbell Docker Debug",
