@@ -27,7 +27,7 @@ return {
 		},
 		config = function()
 			require("mason-nvim-lint").setup({
-				ensure_installed = { "stylua", "prettier", "codelldb" },
+				ensure_installed = { "stylua", "prettier", "codelldb", "buf" },
 				automatic_installation = false,
 			})
 		end,
@@ -45,6 +45,7 @@ return {
 					go = formatters.lsp,
 					rust = formatters.lsp,
 					json = formatters.lsp,
+					proto = formatters.lsp,
 				},
 			})
 		end,
@@ -78,6 +79,7 @@ return {
 					"clangd",
 					"docker_compose_language_service",
 					"dockerls",
+					"bufls",
 				},
 			})
 		end,
@@ -86,9 +88,11 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"folke/neodev.nvim",
+			"ray-x/lsp_signature.nvim",
 		},
 		opts = {
 			autoformat = true,
+			inlay_hints = { enabled = true },
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -122,11 +126,24 @@ return {
 
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
+				settings = {
+					gopls = {
+						analyses = {
+							fillstruct = true,
+						},
+					},
+				},
 			})
 
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
+
+			lspconfig.bufls.setup({
+				capabilities = capabilities,
+			})
+
+			require("lsp_signature").setup({})
 		end,
 	},
 }

@@ -20,6 +20,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {})
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
+	vim.keymap.set("", "<C-<leader>>", vim.lsp.buf.completion, {})
 
 	-- HTTP Requests
 	vim.keymap.set("n", "<leader>shr", "<Plug>RestNvim", {})
