@@ -52,7 +52,7 @@ function keymaps.setup()
 	vim.keymap.set("n", "<A-right>", "<Cmd>BufferMoveNext<CR>")
 	vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
 	vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
-	vim.keymap.set("n", "<C-r>", ":Telescope workspaces<CR>")
+	vim.keymap.set("n", "<leader>w", ":Telescope workspaces<CR>")
 
 	local builtin = require("telescope.builtin")
 	vim.keymap.set("n", "<C-p>", builtin.find_files, {})
