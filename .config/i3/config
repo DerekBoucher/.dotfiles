@@ -201,9 +201,9 @@ exec_always --no-startup-id $HOME/.config/i3/bg_set.sh &
 
 gaps inner 15px
 
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+F6 exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+F6 exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+F6 exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 for_window [title ="Lutris"] floating enable
 for_window [title ="Friends List"] floating enable
