@@ -1,3 +1,0 @@
-return {
-	{ "pabloariasal/webify.nvim" },
-}

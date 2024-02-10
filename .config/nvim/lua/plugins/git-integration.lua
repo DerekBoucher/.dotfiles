@@ -13,4 +13,5 @@ return {
 	{
 		"tpope/vim-fugitive",
 	},
+	{ "pabloariasal/webify.nvim" },
 }
