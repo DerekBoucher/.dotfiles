@@ -7,7 +7,7 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
-						file_ignore_patterns = { ".git/*", "node_modules/*" },
+						file_ignore_patterns = { "node_modules/", "^.git/*" },
 						find_command = { "rg", "--ignore", "--hidden", "--files", "-u" },
 					},
 				},

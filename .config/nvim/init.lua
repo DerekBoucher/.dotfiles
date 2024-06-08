@@ -14,11 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
-
--- theme
-vim.cmd("colorscheme tokyonight-night")
-
 -- Vim specific configurations
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
@@ -27,4 +22,8 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+require("lazy").setup("plugins")
 require("keymaps").setup()
+
+-- theme
+vim.cmd("colorscheme tokyonight-night")
