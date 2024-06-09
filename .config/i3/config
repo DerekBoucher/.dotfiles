@@ -21,7 +21,7 @@ font pango:JetBrainsMonoNerdFont 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id dex --autostart --environment sway
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -51,8 +51,8 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
+# tiling_drag modifier titlebar
+#
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
@@ -60,7 +60,10 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont-15'
+set $menu dmenu_path | wmenu | xargs swaymsg exec --
+
+# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont-15'
+bindsym $mod+d exec $menu
 
 # change focus
 bindsym $mod+j focus left
@@ -197,7 +200,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/.config/i3/bg_set.sh &
+
+output eDP-2 resolution 2560x1600 position 0,0 scale 1.00
+output DP-12 resolution 2560x1440 position 2560,0 
+output DP-11 resolution 1920x1080 position 5120,0
+output * bg $HOME/Pictures/wallpapers/astronaut.jpg fill
 
 gaps inner 15px
 
@@ -205,7 +212,6 @@ bindsym Ctrl+F6 exec --no-startup-id maim | xclip -selection clipboard -t image/
 bindsym Ctrl+$mod+F6 exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+F6 exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
-for_window [title ="Lutris"] floating enable
 for_window [title ="Friends List"] floating enable
 for_window [title ="Zoom Meeting"] floating enable
 for_window [title ="Bluetooth Devices"] floating enable
