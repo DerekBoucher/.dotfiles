@@ -11,6 +11,7 @@ if [ -d "$HOME/.cargo" ]; then
     source "$HOME/.cargo/env"
 fi
 
+
 alias vim=nvim
 alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
 alias cdg="cd ~/src/github.com"

@@ -1,7 +1,6 @@
 export DATABASE_URL=postgres://embroker_role:pwd@localhost:5432/embroker
 
 # Aliases
-alias vim=nvim
 alias cdg="cd ~/src/github.com"
 alias config='/usr/bin/git --git-dir=/home/derek-work/.cfg/ --work-tree=/home/derek-work'
 alias dsa='docker stop $(docker ps -a -q)'
