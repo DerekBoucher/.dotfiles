@@ -1,6 +1,6 @@
 #!/bin/sh
 
-i3status -c $HOME/.config/i3/i3status.conf | while :
+i3status -c $HOME/.config/sway/i3status.conf | while :
 do
     docker_running_containers=$(docker ps -q | wc -l)
     docker_version=$(docker --version | awk '{print $3}' | sed 's/,//g')
