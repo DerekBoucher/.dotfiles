@@ -116,7 +116,7 @@ output DP-14 resolution 2560x1440 position 2560,0
 output DP-13 resolution 1920x1080 position 5120,0
 output DP-12 resolution 2560x1440 position 2560,0 
 output DP-11 resolution 1920x1080 position 5120,0
-output * bg $HOME/Pictures/wallpapers/astronaut.jpg fill
+output * bg $HOME/Pictures/wallpapers/drool-l.svg fill
 
 workspace $ws1 output eDP-2
 workspace $ws1 output eDP-1
@@ -158,6 +158,6 @@ bar {
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'AdwaitaDark'
+    gsettings set $gnome-schema gtk-theme 'Adwaita:dark'
 }
 
