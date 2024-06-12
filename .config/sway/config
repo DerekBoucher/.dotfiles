@@ -111,6 +111,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 output eDP-2 resolution 2560x1600 position 0,0 scale 1.00
+output eDP-1 resolution 2560x1600 position 0,0 scale 1.00
 output DP-14 resolution 2560x1440 position 2560,0
 output DP-13 resolution 1920x1080 position 5120,0
 output DP-12 resolution 2560x1440 position 2560,0 
@@ -118,6 +119,7 @@ output DP-11 resolution 1920x1080 position 5120,0
 output * bg $HOME/Pictures/wallpapers/astronaut.jpg fill
 
 workspace $ws1 output eDP-2
+workspace $ws1 output eDP-1
 workspace $ws2 output DP-14
 workspace $ws3 output DP-13
 workspace $ws2 output DP-12
