@@ -8,7 +8,7 @@ do
     current_volume_sink=$(pacmd list-sinks | grep -A 40 '*' | grep 'alsa.card_name' | sed 's/.*alsa.card_name = "\(.*\)"/\1/')
     display_protocol=$(echo $XDG_SESSION_TYPE)
     power_profile=$(asusctl profile -p | awk 'END {print $NF}')
-    
+    asus_profile=$(supergfxctl -g)
 
-    echo "🔌 $power_profile | 🎧 $current_volume_sink | 👋 $(whoami) | $display_protocol | Docker 🐳 v$docker_version 📦 Containers: $docker_running_containers, Images: $docker_images" || exit 1
+    echo "Graphics: $asus_profile | 🔌 $power_profile | 🎧 $current_volume_sink | 👋 $(whoami) | $display_protocol | Docker 🐳 v$docker_version 📦 Containers: $docker_running_containers, Images: $docker_images" || exit 1
 done
