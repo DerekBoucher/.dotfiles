@@ -1,25 +1,15 @@
 return {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		"MunifTanjim/nui.nvim",
-	},
-	config = function()
-		require("neo-tree").setup({
-			filesystem = {
-				filtered_items = {
-					hide_dotfiles = false,
-					hide_hidden = false,
-					hide_gitignored = false,
-					visible = true,
-				},
-				follow_current_file = {
-					enabled = true,
-					leave_dirs_open = true,
-				},
-			},
-		})
-	end,
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup({
+                sync_root_with_cwd = true,
+            })
+        end,
+    },
 }
