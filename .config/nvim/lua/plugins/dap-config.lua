@@ -203,6 +203,20 @@ return {
 					port = 4002,
 				},
 				{
+					name = "Excess API Docker Debug",
+					request = "attach",
+					type = "go_remote",
+					mode = "remote",
+					substitutePath = {
+						{
+							from = "${workspaceFolder}/service",
+							to = "/tmp/gobuild/service",
+						},
+					},
+					port = 45653,
+				},
+
+				{
 					name = "Monolith Docker Debug",
 					request = "attach",
 					type = "go_remote",
