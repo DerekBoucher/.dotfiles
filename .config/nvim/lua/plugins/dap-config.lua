@@ -78,6 +78,7 @@ return {
 						name = "Launch file",
 						program = "${file}",
 						cwd = "${workspaceFolder}",
+						sourceLanguages = { language },
 					},
 					{
 						type = "pwa-node",
@@ -85,6 +86,7 @@ return {
 						name = "Attach",
 						processId = require("dap.utils").pick_process,
 						cwd = "${workspaceFolder}",
+						sourceLanguages = { language },
 					},
 					{
 						type = "pwa-chrome",
@@ -93,6 +95,7 @@ return {
 						url = "http://localhost:3000",
 						webRoot = "${workspaceFolder}",
 						userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+						sourceLanguages = { language },
 					},
 				}
 			end
