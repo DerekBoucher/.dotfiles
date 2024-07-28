@@ -103,8 +103,8 @@ function keymaps.setup()
 
 	-- Terminal
 	vim.keymap.set("t", "<C-space>", "<C-\\><C-n>", { desc = "Exit terminal mode, allowing for scrolling" })
-	vim.keymap.set("t", "<C-up>", "<C-w><C-n><cmd>:resize +1<CR>", { desc = "Increase terminal window height" })
-	vim.keymap.set("t", "<C-down>", "<C-w><C-n><cmd>:resize -1<CR>", { desc = "decrease terminal window height" })
+	vim.keymap.set("t", "<C-up>", "<C-w><C-n><cmd>:resize +10<CR>", { desc = "Increase terminal window height" })
+	vim.keymap.set("t", "<C-down>", "<C-w><C-n><cmd>:resize -10<CR>", { desc = "decrease terminal window height" })
 
 	-- Workspaces
 	local workspaces = require("workspaces")
