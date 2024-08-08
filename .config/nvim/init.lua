@@ -26,4 +26,4 @@ require("lazy").setup("plugins")
 require("keymaps").setup()
 
 -- theme
-vim.cmd("colorscheme koehler")
+vim.cmd("colorscheme catppuccin-mocha")

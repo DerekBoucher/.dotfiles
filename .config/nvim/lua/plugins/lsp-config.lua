@@ -129,6 +129,7 @@ return {
 				capabilities = capabilities,
 				settings = {
 					gopls = {
+						buildFlags = { "-tags=wireinject" },
 						analyses = {
 							fillstruct = true,
 						},
