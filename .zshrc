@@ -39,3 +39,5 @@ if [ -s "$HOME/.zshrc.secrets" ]; then
 fi
 
 alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
+
+[[ -s "/home/derek-work/.gvm/scripts/gvm" ]] && source "/home/derek-work/.gvm/scripts/gvm"
