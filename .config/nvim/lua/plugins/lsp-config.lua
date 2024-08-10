@@ -25,6 +25,7 @@ return {
 			"williamboman/mason.nvim",
 			"mfussenegger/nvim-lint",
 		},
+		lazy = false,
 		config = function()
 			require("mason-nvim-lint").setup({
 				ensure_installed = { "stylua", "prettier", "codelldb", "buf", "eslint_d" },
