@@ -28,9 +28,10 @@ return {
 					exclude = false,
 				},
 
-				sync_root_with_cwd = true,
-				respect_buf_cwd = true,
+				sync_root_with_cwd = false,
+				respect_buf_cwd = false,
 				reload_on_bufenter = true,
+				prefer_startup_root = false,
 			})
 		end,
 	},
