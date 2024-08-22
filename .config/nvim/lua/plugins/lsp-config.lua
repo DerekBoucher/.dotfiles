@@ -60,9 +60,6 @@ return {
 					-- formatters
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettier,
-
-					-- linters
-					null_ls.builtins.diagnostics.eslint_d,
 				},
 			})
 		end,
