@@ -94,7 +94,6 @@ function keymaps.setup()
 		require("neotest").output_panel.toggle()
 	end, { desc = "Toggle the unit test output panel" })
 
-	-- Git
 	vim.keymap.set("n", "<leader>o", "<cmd>OpenFileInRepo<cr>", { desc = "Open in web browser" })
 	vim.keymap.set(
 		"n",
@@ -109,6 +108,8 @@ function keymaps.setup()
 		"<cmd>YankLineUrl +<cr>",
 		{ desc = "Yank Url to system clipboard, including current line" }
 	)
+
+	-- Git
 	vim.keymap.set(
 		"n",
 		"<leader>gp",
@@ -117,6 +118,8 @@ function keymaps.setup()
 	)
 	vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Opens a new window with git blame information" })
 	vim.keymap.set("n", "<leader>k", ":Git diff<CR>", { desc = "Opens the current git diffs" })
+	vim.keymap.set("n", "<leader>dvo", ":DiffviewOpen<CR>", { desc = "Opens the current diffs wrt last commit" })
+	vim.keymap.set("n", "<leader>dvc", ":DiffviewClose<CR>", { desc = "Closes the current diffs wrt last commit" })
 
 	-- Terminal
 	vim.keymap.set("t", "<C-space>", "<C-\\><C-n>", { desc = "Exit terminal mode, allowing for scrolling" })

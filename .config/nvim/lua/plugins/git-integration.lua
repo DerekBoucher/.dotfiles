@@ -13,5 +13,10 @@ return {
 	{
 		"tpope/vim-fugitive",
 	},
-	{ "pabloariasal/webify.nvim" },
+	{
+		"pabloariasal/webify.nvim",
+	},
+	{
+		"sindrets/diffview.nvim",
+	},
 }
