@@ -140,6 +140,19 @@ return {
 
             dap.configurations["go"] = {
                 {
+                    name = "DocGen Docker Debug",
+                    request = "attach",
+                    type = "go_remote",
+                    mode = "remote",
+                    substitutePath = {
+                        {
+                            from = "${workspaceFolder}",
+                            to = "/go/src",
+                        },
+                    },
+                    port = 41255,
+                },
+                {
                     name = "Papyrus Docker Debug",
                     request = "attach",
                     type = "go_remote",
@@ -216,7 +229,7 @@ return {
                             to = "/tmp/gobuild/service",
                         },
                     },
-                    port = 45653,
+                    port = 45654,
                 },
 
                 {
