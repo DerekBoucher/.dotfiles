@@ -253,7 +253,7 @@ return {
                     substitutePath = {
                         {
                             from = "${workspaceFolder}",
-                            to = "/backend-src/rating_engine",
+                            to = "/go/src",
                         },
                     },
                     port = 4030,
