@@ -140,6 +140,12 @@ return {
 
             dap.configurations["go"] = {
                 {
+                    name = "Go local debug",
+                    request = "launch",
+                    type = "go_local",
+                    program = "${file}",
+                },
+                {
                     name = "DocGen Docker Debug",
                     request = "attach",
                     type = "go_remote",
@@ -161,6 +167,10 @@ return {
                         {
                             from = "${workspaceFolder}",
                             to = "/go/src",
+                        },
+                        {
+                            from = "${workspaceFolder}/../docmosis-ds4/client",
+                            to = "/vendor/github.com/embroker/docmosis-ds4/client",
                         },
                     },
                     port = 4111,
@@ -242,6 +252,14 @@ return {
                             from = "${workspaceFolder}",
                             to = "/go/src/server/server",
                         },
+                        -- {
+                        -- 	from = "${workspaceFolder}/../../docmosis-ds4",
+                        -- 	to = "/go/src/server/server/vendor/github.com/embroker/docmosis-ds4",
+                        -- },
+                        -- {
+                        -- 	from = "${workspaceFolder}/../../papyrus",
+                        -- 	to = "/go/src/server/server/vendor/github.com/embroker/papyrus",
+                        -- },
                     },
                     port = 45653,
                 },
