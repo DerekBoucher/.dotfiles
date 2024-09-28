@@ -159,6 +159,19 @@ return {
                     port = 41255,
                 },
                 {
+                    name = "Form Library Docker Debug",
+                    request = "attach",
+                    type = "go_remote",
+                    mode = "remote",
+                    substitutePath = {
+                        {
+                            from = "${workspaceFolder}",
+                            to = "/go/src",
+                        },
+                    },
+                    port = 4222,
+                },
+                {
                     name = "Papyrus Docker Debug",
                     request = "attach",
                     type = "go_remote",
