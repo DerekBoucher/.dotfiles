@@ -28,7 +28,7 @@ return {
         lazy = false,
         config = function()
             require("mason-nvim-lint").setup({
-                ensure_installed = { "stylua", "prettier", "codelldb", "buf", "eslint_d" },
+                ensure_installed = { "stylua", "prettier", "codelldb", "buf", "eslint_d", "fixjson" },
                 automatic_installation = false,
             })
         end,
@@ -49,6 +49,7 @@ return {
                     rust = formatters.lsp,
                     json = formatters.lsp,
                     proto = formatters.lsp,
+                    yaml = formatters.lsp,
                 },
             })
         end,
@@ -113,6 +114,10 @@ return {
                 },
             })
 
+            lspconfig.jsonls.setup({
+                capabilities = capabilities,
+            })
+
             lspconfig.dockerls.setup({
                 capabilities = capabilities,
             })
@@ -142,6 +147,14 @@ return {
             })
 
             lspconfig.bufls.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.dockerls.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.docker_compose_language_service.setup({
                 capabilities = capabilities,
             })
 
