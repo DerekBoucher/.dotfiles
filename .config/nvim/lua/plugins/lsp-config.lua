@@ -50,6 +50,7 @@ return {
                     json = formatters.lsp,
                     proto = formatters.lsp,
                     yaml = formatters.lsp,
+                    html = formatters.lsp,
                 },
             })
         end,
@@ -82,6 +83,8 @@ return {
                     "dockerls",
                     "bufls",
                     "jsonls",
+                    "htmx",
+                    "html",
                 },
             })
         end,
@@ -155,6 +158,14 @@ return {
             })
 
             lspconfig.docker_compose_language_service.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.htmx.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.html.setup({
                 capabilities = capabilities,
             })
 
