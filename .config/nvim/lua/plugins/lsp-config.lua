@@ -83,7 +83,6 @@ return {
                     "dockerls",
                     "bufls",
                     "jsonls",
-                    "htmx",
                     "html",
                 },
             })
@@ -158,10 +157,6 @@ return {
             })
 
             lspconfig.docker_compose_language_service.setup({
-                capabilities = capabilities,
-            })
-
-            lspconfig.htmx.setup({
                 capabilities = capabilities,
             })
 
