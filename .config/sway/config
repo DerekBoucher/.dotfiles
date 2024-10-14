@@ -118,7 +118,7 @@ output DP-14 resolution 2560x1440 position 2880,0
 output DP-10 resolution 1920x1080 position 5440,0
 output DP-13 resolution 2560x1440 position 5440,0 
 
-output * bg $HOME/wallpapers/astronaut.jpg fill
+output * bg /usr/share/wallpapers/Flow/contents/images_dark/5120x2880.jpg fill
 
 workspace $ws1 output eDP-1
 
@@ -152,7 +152,7 @@ default_floating_border normal
 bar {
     status_command i3status -c $HOME/.config/sway/i3status.conf
     colors {
-        background #301934
+        background #191919
     }
     workspace_buttons no
 }
@@ -161,7 +161,7 @@ bar {
     status_command $HOME/.config/sway/custom_bar.sh
     tray_output none
     colors {
-        background #301934
+        background #191919
     }
 }
 
