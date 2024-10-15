@@ -31,7 +31,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec $rofi
+bindsym $mod+d exec $menu
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
