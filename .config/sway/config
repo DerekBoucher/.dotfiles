@@ -119,7 +119,7 @@ output DP-14 resolution 2560x1440 position 2304,0
 output DP-10 resolution 1920x1080 position 4864,0
 output DP-13 resolution 2560x1440 position 4864,0 
 
-output * bg /usr/share/wallpapers/Flow/contents/images_dark/5120x2880.jpg fill
+output * bg /usr/share/wallpapers/plasma-flow-dark.png fill
 
 workspace $ws1 output eDP-1
 
