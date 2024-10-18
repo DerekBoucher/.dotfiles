@@ -11,7 +11,6 @@ if [ -d "$HOME/.cargo" ]; then
     source "$HOME/.cargo/env"
 fi
 
-
 alias vim=nvim
 alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
 alias cfgs='config status --untracked-files=no'
@@ -25,9 +24,9 @@ prompt_dir() {
   prompt_segment blue black '%c'
 }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 
 if [ -s "$HOME/.zshrc.embroker" ]; then
@@ -39,5 +38,3 @@ if [ -s "$HOME/.zshrc.secrets" ]; then
 fi
 
 alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
-
-[[ -s "/home/derek-work/.gvm/scripts/gvm" ]] && source "/home/derek-work/.gvm/scripts/gvm"
