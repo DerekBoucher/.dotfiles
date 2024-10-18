@@ -147,6 +147,7 @@ for_window [window_type ="dialog"] floating enable
 for_window [title ="Please Confirm..." instance ="Godot_Engine"] floating enable
 for_window [class ="Godot" instance ="Godot_ProjectList"] floating enable
 for_window [title ="Godot Engine - Project Manager"] floating enable, border none
+for_window [title ="^(?!.*Mozilla Thunderbird).*$" app_id="thunderbird"] floating enable
 default_border pixel 3
 default_floating_border normal
 
