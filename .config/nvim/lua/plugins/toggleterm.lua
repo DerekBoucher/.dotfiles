@@ -6,7 +6,7 @@ return {
 			require("toggleterm").setup({
 				open_mapping = [[<C-\>]],
 				hide_numbers = true,
-				direction = "horizontal",
+				direction = "float",
 				autochdir = true,
 			})
 		end,
