@@ -146,6 +146,20 @@ return {
                     program = "${file}",
                 },
                 {
+                    name = "Product Definition Docker Debug",
+                    request = "attach",
+                    type = "go_remote",
+                    mode = "remote",
+                    substitutePath = {
+                        {
+                            from = "${workspaceFolder}",
+                            to = "/go/src",
+                        },
+                    },
+                    port = 4013,
+                },
+
+                {
                     name = "DocGen Docker Debug",
                     request = "attach",
                     type = "go_remote",
