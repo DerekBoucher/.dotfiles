@@ -16,6 +16,16 @@ alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
 alias cfgs='config status --untracked-files=no'
 alias cdg="cd ~/src/github.com"
 
+
+if ! [[ $(which npm) =~ "not found"  ]]; then
+    mkdir -p "${HOME}/.npm-packages"
+    npm config set prefix "${HOME}/.npm-packages"
+    NPM_PACKAGES="${HOME}/.npm-packages"
+
+    export PATH="$PATH:$NPM_PACKAGES/bin"
+    export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+fi
+
 prompt_context() {
   prompt_segment black default ""
 }
