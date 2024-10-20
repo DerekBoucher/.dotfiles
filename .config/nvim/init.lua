@@ -27,4 +27,4 @@ require("lazy").setup("plugins")
 require("keymaps").setup()
 
 -- theme
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme vscode")
