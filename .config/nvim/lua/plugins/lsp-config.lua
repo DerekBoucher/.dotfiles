@@ -51,6 +51,7 @@ return {
 					proto = formatters.lsp,
 					yaml = formatters.lsp,
 					html = formatters.lsp,
+					tmpl = formatters.lsp,
 				},
 			})
 		end,
@@ -135,7 +136,6 @@ return {
 
 			lspconfig.templ.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 
 			lspconfig.gopls.setup({
@@ -178,6 +178,7 @@ return {
 					tailwindCSS = {
 						includeLanguages = {
 							templ = "html",
+							tmpl = "html",
 						},
 					},
 				},
