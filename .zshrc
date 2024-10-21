@@ -1,5 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
+export GTK_THEME=Catppuccin-Dark
 
 ZSH_THEME="agnoster"
 plugins=(git)
