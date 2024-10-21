@@ -2,7 +2,6 @@ include /etc/sway/config.d/*
 
 set $mod Mod4
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $rofi rofi -show run -show-icons
 set $refresh_i3status killall -SIGUSR1 i3status
 set $ws1 "1: 󰈹 "
 set $ws2 "2:  "
@@ -97,7 +96,6 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-
 mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
@@ -153,6 +151,8 @@ for_window [title ="^(?!.*Mozilla Thunderbird).*$" app_id="thunderbird"] floatin
 default_border pixel 3
 default_floating_border normal
 
+# exec_always --no-startup-id killall waybar
+# exec_always --no-startup-id waybar
 bar {
     status_command i3status -c $HOME/.config/sway/i3status.conf
     colors {
@@ -172,6 +172,6 @@ bar {
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita:dark'
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 }
 
