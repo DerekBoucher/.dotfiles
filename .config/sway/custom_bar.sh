@@ -13,17 +13,17 @@ do
 
     display_protocol=$(echo $XDG_SESSION_TYPE)
     if [[ "$display_protocol" == "wayland" ]]; then
-        display_protocol+=' '
+        display_protocol+='  '
     fi
 
     brightness=""
     if ! [[ $(which brightnessctl) =~ "not found"  ]]; then
-        brightness="| $(brightnessctl --device=amdgpu_bl0 | grep -i current | sed 's/\t//')"  
+        brightness="🔆 $(brightnessctl --device=amdgpu_bl0 | grep -i current | sed -n 's/.*(\([^)]*\)).*/\1/p') |"  
     fi
 
     power_profile=$(asusctl profile -p | awk 'END {print $NF}')
     asus_profile=$(supergfxctl -g)
 
-    echo "Graphics: $asus_profile | 🔌 $power_profile | 🎧 $sink_name | 🎤 $source_name | 👋 $(whoami) | $display_protocol | Docker 🐳 v$docker_version 📦 Containers: $docker_running_containers, Images: $docker_images $brightness" || exit 1
+    echo "$brightness $asus_profile | 🔌 $power_profile | 🎧 $sink_name | 🎤 $source_name | 👋 $(whoami) | $display_protocol | 🐳 Docker: v$docker_version 📦$docker_running_containers 💿$docker_images" || exit 1
 
 done
