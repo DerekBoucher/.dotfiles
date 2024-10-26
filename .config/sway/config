@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
 
 set $mod Mod4
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | wmenu -S ffff00 -s 000000 -N 000000 -f 'JetBrainsMonoNerdFont 15' | xargs swaymsg exec --
 set $refresh_i3status killall -SIGUSR1 i3status
 set $ws1 "1: 󰈹 "
 set $ws2 "2:  "
@@ -18,10 +18,13 @@ font pango:JetBrainsMonoNerdFont 12
 
 floating_modifier $mod
 
+client.focused #ffff00 #ffff00 #000000 #ffff00
+
 exec --no-startup-id dex --autostart --environment sway
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scripts/lock --nofork
 exec --no-startup-id nm-applet --indicator
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id killall blueman-applet
+exec_always --no-startup-id blueman-applet
 exec --no-startup-id dunst
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -117,7 +120,7 @@ output DP-11 resolution 2560x1440 position 2304,0
 output DP-14 resolution 2560x1440 position 2304,0
 
 output DP-10 resolution 1920x1080 position 4864,0
-output DP-13 resolution 2560x1440 position 4864,0 
+output DP-13 resolution 1920x1080 position 4864,0 
 
 output * bg /usr/share/wallpapers/plasma-flow-dark.png fill
 
@@ -133,8 +136,7 @@ gaps inner 15px
 
 bindsym Ctrl+F6 exec --no-startup-id grim -g "$(slurp -d)" - | wl-copy | notify-send "Selection copied to clipboard"
 bindsym Ctrl+$mod+F6 exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy | notify-send "Entire screen copied to clipboard"
-bindsym Ctrl+Shift+F6 exec --no-startup-id grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy | notify-send "Focused window copied to clipboard"
-
+bindsym $mod+F6 exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
 for_window [title ="Friends List"] floating enable
 for_window [title ="Zoom Meeting"] floating enable
 for_window [title ="Bluetooth Devices"] floating enable
@@ -150,26 +152,28 @@ for_window [title ="Godot Engine - Project Manager"] floating enable, border non
 for_window [title ="^(?!.*Mozilla Thunderbird).*$" app_id="thunderbird"] floating enable
 for_window [title ="KCalc"] floating enable
 for_window [title ="KCalc" floating] resize set 400 400
-default_border pixel 3
+for_window [title ="The Sims Complete Collection"] floating enable
+for_window [title ="Network Connections"] floating enable
+default_border pixel 2
 default_floating_border normal
 
-# exec_always --no-startup-id killall waybar
-# exec_always --no-startup-id waybar
-bar {
-    status_command i3status -c $HOME/.config/sway/i3status.conf
-    colors {
-        background #191919
-    }
-    workspace_buttons no
-}
-
-bar {
-    status_command $HOME/.config/sway/custom_bar.sh
-    tray_output none
-    colors {
-        background #191919
-    }
-}
+exec_always --no-startup-id killall waybar
+exec_always --no-startup-id waybar
+# bar {
+#     status_command i3status -c $HOME/.config/sway/i3status.conf
+#     colors {
+#         background #191919
+#     }
+#     workspace_buttons no
+# }
+#
+# bar {
+#     status_command $HOME/.config/sway/custom_bar.sh
+#     tray_output none
+#     colors {
+#         background #191919
+#     }
+# }
 
 
 set $gnome-schema org.gnome.desktop.interface
