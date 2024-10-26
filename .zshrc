@@ -32,7 +32,7 @@ prompt_context() {
 }
 
 prompt_dir() {
-  prompt_segment blue black '%c'
+  prompt_segment yellow black '%c'
 }
 
 if [ -s "$HOME/.zshrc.embroker" ]; then

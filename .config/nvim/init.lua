@@ -22,6 +22,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set foldenable")
+vim.cmd("set title")
 
 require("lazy").setup("plugins")
 require("keymaps").setup()
