@@ -3,7 +3,7 @@
     "position": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode","sway/window"],
     "modules-center": [],
-    "modules-right": ["memory","network","pulseaudio","backlight","battery","disk","clock","tray"],
+    "modules-right": ["power-profiles-daemon","memory","network","pulseaudio","backlight","battery","disk","clock","tray"],
     "reload_style_on_change": true,
     "sway/window": {
         "max-length": 50
@@ -14,7 +14,7 @@
     },
     "disk": {
         "interval": 30,
-        "format": "📂 {specific_free:0.2f} GB Free",
+        "format": "📂 {specific_free:0.2f} GB",
         "path": "/",
         "on_click": "/usr/bin/nautilus",
         "unit": "GB"
@@ -34,12 +34,23 @@
     },
     "network":{
         "interval": 1,
-        "format-wifi": "  {essid} {ipaddr} {frequency}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-ethernet": "󰈀 {ifname} {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "Offline"
     },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": " ",
+            "performance": " ",
+            "balanced": " ",
+            "power-saver": " "
+        }
+    },
     "clock": {
-        "format": "{:%b %d %Y  %H:%M:%S}",
+        "format": "{:%b %d %Y %H:%M:%S}",
         "interval": 1,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -69,8 +80,7 @@
         "format-icons": ["🔅", "🔆"]
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{volume}% {icon} {desc}",
         "format-muted": "🔇",
         "format-icons": {
             "alsa_output.pci-0000_00_1f.3.analog-stereo": "",

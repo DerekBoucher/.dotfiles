@@ -1,5 +1,14 @@
 return {
 	{
+		"unrealjo/neovim-purple",
+	},
+	{
+		"Rigellute/shades-of-purple.vim",
+	},
+	{
+		"QuentinWatt/dark-flat-iterm-colors",
+	},
+	{
 		"nyoom-engineering/oxocarbon.nvim",
 	},
 	{
