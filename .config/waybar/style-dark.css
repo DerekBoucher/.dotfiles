@@ -9,7 +9,7 @@
 * {
     border: none;
     border-radius: 0px;
-    font-size: 20px;
+    font-size: 15px;
     font-family: "JetBrainsMono Nerd Font";
     min-height: 0px;
 }
@@ -27,14 +27,6 @@ window#waybar {
     background: @bg_main;
     border-top: 1px solid @border_main; 
     color: @content_main;
-}
-
-window.DP-10 * {
-    font-size: 15px;
-}
-
-window.DP-13 * {
-    font-size: 15px;
 }
 
 tooltip {

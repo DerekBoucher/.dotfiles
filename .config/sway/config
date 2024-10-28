@@ -154,6 +154,7 @@ for_window [title ="KCalc"] floating enable
 for_window [title ="KCalc" floating] resize set 400 400
 for_window [title ="The Sims Complete Collection"] floating enable
 for_window [title ="Network Connections"] floating enable
+for_window [title ="^(?!.*Steam).*$" instance ="steamwebhelper"] floating enable
 default_border pixel 2
 default_floating_border normal
 
