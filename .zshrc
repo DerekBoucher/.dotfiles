@@ -16,6 +16,7 @@ alias vim=nvim
 alias config='$(which git) --git-dir=$HOME/.git-cfg --work-tree=$HOME'
 alias cfgs='config status --untracked-files=no'
 alias cdg="cd ~/src/github.com"
+alias ff=fastfetch
 
 
 if ! [[ $(which npm) =~ "not found"  ]]; then
