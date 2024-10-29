@@ -1,5 +1,9 @@
 return {
 	{
+		"kihachi2000/yash.nvim",
+	},
+	{ "dasupradyumna/midnight.nvim" },
+	{
 		"unrealjo/neovim-purple",
 	},
 	{
