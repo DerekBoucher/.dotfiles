@@ -3,10 +3,14 @@
     "position": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode","sway/window"],
     "modules-center": [],
-    "modules-right": ["power-profiles-daemon","memory","network","pulseaudio","backlight","battery","disk","clock","tray"],
+    "modules-right": ["custom/whoami","power-profiles-daemon","memory","network","pulseaudio","backlight","battery","disk","clock","tray"],
     "reload_style_on_change": true,
     "sway/window": {
         "max-length": 50
+    },
+    "custom/whoami": {
+        "exec": "whoami",
+        "format": "{} 👋"
     },
     "memory": {
         "interval": 2,
