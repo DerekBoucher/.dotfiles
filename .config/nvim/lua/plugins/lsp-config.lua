@@ -128,6 +128,7 @@ return {
 
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
+				filetypes = { "c", "cpp", "objcpp", "objc", "h", "hpp" },
 			})
 
 			lspconfig.rust_analyzer.setup({
